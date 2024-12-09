@@ -1,1 +1,3 @@
 SHOW PROCESSLIST;
+
+SELECT * FROM events;
