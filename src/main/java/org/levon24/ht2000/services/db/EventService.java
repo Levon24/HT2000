@@ -6,6 +6,7 @@ package org.levon24.ht2000.services.db;
  * Time: 19:35
  */
 
+import org.levon24.ht2000.models.Event;
 import org.levon24.ht2000.repositories.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,7 @@ public class EventService {
     this.repository = repository;
   }
 
-
+  public Event save(Event event) {
+    return repository.save(event);
+  }
 }

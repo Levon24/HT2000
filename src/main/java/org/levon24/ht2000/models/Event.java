@@ -24,7 +24,7 @@ public class Event {
   private Timestamp timestamp;
 
   @Column(name = "co2")
-  private Integer co2;
+  private Short co2;
 
   @Column(name = "temperature")
   private Double temperature;
@@ -56,11 +56,11 @@ public class Event {
     this.timestamp = timestamp;
   }
 
-  public Integer getCo2() {
+  public Short getCo2() {
     return co2;
   }
 
-  public void setCo2(Integer co2) {
+  public void setCo2(Short co2) {
     this.co2 = co2;
   }
 

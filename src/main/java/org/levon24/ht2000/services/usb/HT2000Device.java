@@ -12,6 +12,9 @@ import org.usb4java.Device;
 import org.usb4java.DeviceHandle;
 import org.usb4java.LibUsb;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.sql.Timestamp;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class HT2000Device {
@@ -59,6 +62,33 @@ public class HT2000Device {
     }
 
     LibUsb.close(handle);
+  }
+
+  public HT2000State readState() {
+    // https://github.com/gsuberland/HT2000Lib
+    final ByteBuffer buffer = ByteBuffer.allocateDirect(61);
+
+    int code = LibUsb.controlTransfer(handle, (byte) (LibUsb.ENDPOINT_IN | LibUsb.REQUEST_TYPE_CLASS | LibUsb.RECIPIENT_INTERFACE),
+      (byte) 0x01, (short) 0x0105, (short) 0, buffer, 5000);
+    if (code < 0) {
+      logger.error("Can't transfer state from usb device: {}. Code: {}. Error: {}.", handle, code, LibUsb.strError(code));
+      return null;
+    }
+
+    buffer.order(ByteOrder.BIG_ENDIAN);
+
+    long ts = Integer.toUnsignedLong(buffer.getInt(1)) - 0x7776F6C0;
+    Timestamp timestamp = new Timestamp(ts * 1000);
+    double temperature = (buffer.getShort(7) - 400) / 10.0;
+    double humidity = buffer.getShort(9) / 10.0;
+    short co2 = buffer.getShort(24);
+    logger.info("Timestamp: {}, CO2: {}, Temperature: {}, Humidity: {}.", timestamp, co2, temperature, humidity);
+
+    return new HT2000State(timestamp, co2, temperature, humidity);
+  }
+
+  public byte getNumber() {
+    return number;
   }
 
   public boolean getClaimed() {
