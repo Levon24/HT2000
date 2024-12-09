@@ -9,8 +9,8 @@
     <relativePath/>
   </parent>
 
-  <groupId>co2counter</groupId>
-  <artifactId>co2counter-app</artifactId>
+  <groupId>ht2000</groupId>
+  <artifactId>ht2000</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
@@ -106,7 +106,7 @@
   </dependencies>
 
   <build>
-    <finalName>co2counter</finalName>
+    <finalName>ht2000</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
@@ -120,7 +120,7 @@
         <configuration>
           <scanIntervalSeconds>10</scanIntervalSeconds>
           <webApp>
-            <contextPath>/co2counter</contextPath>
+            <contextPath>/ht2000</contextPath>
           </webApp>
         </configuration>
       </plugin>
