@@ -1,4 +1,4 @@
-package org.levon24.co2counter.configurations;
+package org.levon24.ht2000.configurations;
 
 /*
  * User: levon

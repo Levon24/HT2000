@@ -1,4 +1,7 @@
 -- init database
-CREATE SCHEMA co2counter;
-CREATE USER 'co2counter'@'localhost' IDENTIFIED BY 'd13932943ee25167';
-GRANT ALL PRIVILEGES ON co2counter.* to 'co2counter'@'localhost';
+CREATE SCHEMA ht2000;
+CREATE USER 'ht2000'@'localhost' IDENTIFIED BY 'd13932943ee25167';
+GRANT ALL PRIVILEGES ON ht2000.* to 'ht2000'@'localhost';
+
+-- init tables
+@tables/events.sql

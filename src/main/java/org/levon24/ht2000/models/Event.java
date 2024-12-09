@@ -1,4 +1,4 @@
-package org.levon24.co2counter.models;
+package org.levon24.ht2000.models;
 
 /*
  * User: levon
@@ -16,6 +16,9 @@ public class Event {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
   private Long id;
+
+  @Column(name = "device")
+  private Byte device;
 
   @Column(name = "timestamp")
   private Timestamp timestamp;
@@ -35,6 +38,14 @@ public class Event {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public Byte getDevice() {
+    return device;
+  }
+
+  public void setDevice(Byte device) {
+    this.device = device;
   }
 
   public Timestamp getTimestamp() {
@@ -73,6 +84,7 @@ public class Event {
   public String toString() {
     return "Event{" +
       "id=" + id +
+      ", device=" + device +
       ", timestamp=" + timestamp +
       ", co2=" + co2 +
       ", temperature=" + temperature +

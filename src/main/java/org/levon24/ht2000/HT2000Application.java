@@ -1,4 +1,4 @@
-package org.levon24.co2counter;
+package org.levon24.ht2000;
 
 /*
  * User: levon
@@ -10,8 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Co2counterApplication {
+public class HT2000Application {
   public static void main(String[] args) {
-    SpringApplication.run(Co2counterApplication.class, args);
+    SpringApplication.run(HT2000Application.class, args);
   }
 }

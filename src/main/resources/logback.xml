@@ -6,9 +6,9 @@
   </appender>
 
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>/var/log/jetty9/co2counter.log</file>
+    <file>/var/log/jetty9/ht2000.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>/var/log/jetty9/co2counter.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <fileNamePattern>/var/log/jetty9/ht2000.%d{yyyy-MM-dd}.log</fileNamePattern>
       <maxHistory>28</maxHistory>
       <totalSizeCap>128Mb</totalSizeCap>
     </rollingPolicy>

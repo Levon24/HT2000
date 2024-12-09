@@ -1,4 +1,4 @@
-package org.levon24.co2counter;
+package org.levon24.ht2000;
 
 /*
  * User: levon
@@ -13,6 +13,6 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-    return application.sources(Co2counterApplication.class);
+    return application.sources(HT2000Application.class);
   }
 }

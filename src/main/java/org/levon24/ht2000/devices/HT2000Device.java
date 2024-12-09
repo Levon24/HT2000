@@ -1,4 +1,4 @@
-package org.levon24.co2counter.devices;
+package org.levon24.ht2000.devices;
 
 /*
  * User: levon

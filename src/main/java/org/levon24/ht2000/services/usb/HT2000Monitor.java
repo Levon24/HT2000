@@ -1,4 +1,4 @@
-package org.levon24.co2counter.services.usb;
+package org.levon24.ht2000.services.usb;
 
 /*
  * User: levon
@@ -6,8 +6,8 @@ package org.levon24.co2counter.services.usb;
  * Time: 19:52
  */
 
-import org.levon24.co2counter.devices.HT2000Device;
-import org.levon24.co2counter.services.db.EventService;
+import org.levon24.ht2000.devices.HT2000Device;
+import org.levon24.ht2000.services.db.EventService;
 import org.springframework.stereotype.Service;
 import org.usb4java.Device;
 

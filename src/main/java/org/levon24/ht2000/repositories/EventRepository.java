@@ -1,4 +1,4 @@
-package org.levon24.co2counter.repositories;
+package org.levon24.ht2000.repositories;
 
 /*
  * User: levon
@@ -6,7 +6,7 @@ package org.levon24.co2counter.repositories;
  * Time: 19:34
  */
 
-import org.levon24.co2counter.models.Event;
+import org.levon24.ht2000.models.Event;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
