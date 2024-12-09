@@ -8,23 +8,52 @@ package org.levon24.co2counter.devices;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.usb4java.Context;
-import org.usb4java.DeviceList;
-import org.usb4java.LibUsb;
+import org.usb4java.*;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class HT2000Device {
   private final static Logger logger = LoggerFactory.getLogger(HT2000Device.class);
+  private final static short HT2000_VENDOR_ID = (short) 0x10c4;
+  private final static short HT2000_PRODUCT_ID = (short) 0x82cd;
   private final static Context context = new Context();
   private final static int init = LibUsb.init(context);
 
-  public void scan() {
-    if (init != LibUsb.SUCCESS) {
+  public List<Device> scan() {
+    if (init < 0) {
       logger.error("Can't init usb library. Code: {}. Error: {}.", init, LibUsb.strError(init));
-      return;
+      return Collections.emptyList();
     }
 
     final DeviceList devices = new DeviceList();
+    int codeList = LibUsb.getDeviceList(context, devices);
+    if (codeList < 0) {
+      logger.error("Can't get usb devices list. Code: {}. Error: {}.", codeList, LibUsb.strError(codeList));
+      return Collections.emptyList();
+    }
 
+    try {
+      final List<Device> list = new ArrayList<>();
 
+      for (Device device : devices) {
+        final DeviceDescriptor deviceDescriptor = new DeviceDescriptor();
+        int codeDescriptor = LibUsb.getDeviceDescriptor(device, deviceDescriptor);
+        if (codeDescriptor < 0) {
+          logger.error("Can't get usb device descriptor. Code: {}. Error: {}.", codeDescriptor, LibUsb.strError(codeDescriptor));
+          continue;
+        }
+
+        if (deviceDescriptor.idVendor() == HT2000_VENDOR_ID && deviceDescriptor.idProduct() == HT2000_PRODUCT_ID) {
+          list.add(device);
+          logger.info("Device: {} found.", device);
+        }
+      }
+
+      return list;
+    } finally {
+      LibUsb.freeDeviceList(devices, false);
+    }
   }
 }

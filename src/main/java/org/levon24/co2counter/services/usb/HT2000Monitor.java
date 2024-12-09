@@ -9,8 +9,10 @@ package org.levon24.co2counter.services.usb;
 import org.levon24.co2counter.devices.HT2000Device;
 import org.levon24.co2counter.services.db.EventService;
 import org.springframework.stereotype.Service;
+import org.usb4java.Device;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 @Service
 public class HT2000Monitor {
@@ -23,6 +25,6 @@ public class HT2000Monitor {
   @PostConstruct
   public void init() {
     HT2000Device connection = new HT2000Device();
-    connection.scan();
+    List<Device> devices = connection.scan();
   }
 }
