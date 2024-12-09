@@ -1,4 +1,4 @@
-package org.levon24.ht2000.devices;
+package org.levon24.ht2000.usb;
 
 /*
  * User: levon
