@@ -14,12 +14,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class HT2000Device {
-  private final static Logger logger = LoggerFactory.getLogger(HT2000Device.class);
+public class HT2000Manager {
+  private final static Logger logger = LoggerFactory.getLogger(HT2000Manager.class);
   private final static short HT2000_VENDOR_ID = (short) 0x10c4;
   private final static short HT2000_PRODUCT_ID = (short) 0x82cd;
   private final static Context context = new Context();
   private final static int init = LibUsb.init(context);
+  private static HT2000Manager instance;
+
+  private HT2000Manager() {
+    logger.info("Initialized");
+  }
+
+  public static synchronized HT2000Manager getInstance() {
+    if (instance == null) {
+      instance = new HT2000Manager();
+    }
+    return instance;
+  }
 
   public List<Device> scan() {
     if (init < 0) {
