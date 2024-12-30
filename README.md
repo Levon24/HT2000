@@ -36,6 +36,12 @@ After install you can use mariadb as grafana db too.
 The next step is - adding datasource to connect to ht2000 database.
 After that you can create dashboard HT2000 monitoring or simple import example from [file](grafana/HT2000-1735536781738.json).
 
+## Hardware
+So all project you can see here ![photo](img/photo.jpg)
+* First it is device HT2000.
+* Orange PI 2w
+* UPS 5v
+
 ## References
 Thanks for following guys who researched this device:
 * https://github.com/eschava/HT2000-java
