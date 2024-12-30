@@ -31,7 +31,10 @@ If you want to skip testing use `mvn clean package -DskipTests`.
 ## Grafana
 Grafana can be installed from grafana repository.
 Here is docs https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/
-After install you can use mariadb for grafana.
+
+After install you can use mariadb as grafana db too.
+The next step is - adding datasource to connect to ht2000 database.
+After that you can create dashboard HT2000 monitoring or simple import example from [file](grafana/HT2000-1735536781738.json).
 
 ## References
 Thanks for following guys who researched this device:
