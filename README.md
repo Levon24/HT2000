@@ -6,9 +6,10 @@ Data from HT-2000 can be retrieved via USB cable.
 Here a java application based on spring 2.x for counting CO2, temperature and humidity measures and store it in db.
 Application should work on jetty 9x from debian standard repository.
 
-For GUI will be used grafana to showing stored in database data. 
+For GUI will be used grafana to showing stored in database data.
+![screenshot](img/grafana.png)
 
-All it should works on Orange PI Zero 2w.
+All it should works on Orange PI Zero 2 with 2gb+ ram memory.
 
 ## Database
 Current database is MariaDB (fork of MySQL).
@@ -26,6 +27,11 @@ Build process preparing a war file for jetty application server.
 Test part will check db and functionality, so you need to install mysql db on pc or in docker environment.
 Run command `mvn clean package` to build war file.
 If you want to skip testing use `mvn clean package -DskipTests`.
+
+## Grafana
+Grafana can be installed from grafana repository.
+Here is docs https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/
+After install you can use mariadb for grafana.
 
 ## References
 Thanks for following guys who researched this device:
