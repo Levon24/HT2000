@@ -77,7 +77,7 @@ public class HT2000Device {
 
     buffer.order(ByteOrder.BIG_ENDIAN);
 
-    long ts = Integer.toUnsignedLong(buffer.getInt(1)) - 0x7776F6C0;
+    long ts = Integer.toUnsignedLong(buffer.getInt(1)) - 2004198720;
     Timestamp timestamp = new Timestamp(ts * 1000);
     double temperature = (buffer.getShort(7) - 400) / 10.0;
     double humidity = buffer.getShort(9) / 10.0;
