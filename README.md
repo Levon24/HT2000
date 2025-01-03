@@ -42,6 +42,14 @@ So all project you can see here ![photo](img/photo.jpg)
 * Orange PI 2w
 * UPS 5v
 
+## Wifi
+When orange pi lost connection to WiFi network manager did not reconnect to WiFi.
+So, you need manually run following commands:
+```
+nmcli device set wlan0 autoconnect yes
+sudo nmcli connection modify {YOU-WIFI-NETWORK-NAME} connection.autoconnect yes
+```
+
 ## References
 Thanks for following guys who researched this device:
 * https://github.com/eschava/HT2000-java
